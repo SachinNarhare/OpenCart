@@ -39,7 +39,7 @@ public static SoftAssert testAssert;
 public Properties properties;
 
 
-	@BeforeSuite
+	//@BeforeSuite
 	public void setUpSuite(ITestContext context) {
 	    String suitname=context.getCurrentXmlTest().getSuite().getName();	      
 		testAssert=new SoftAssert();
