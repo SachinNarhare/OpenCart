@@ -1,0 +1,9 @@
+testCases\TC001_AccountRegistrationTest.class
+utilities\Helper.class
+pageObjects\LoginPage.class
+pageObjects\BasePage.class
+pageObjects\HomePage.class
+pageObjects\MyAccountPage.class
+testPages\HomePageMethod.class
+testBase\BaseClass.class
+pageObjects\AccountRegistrationPage.class

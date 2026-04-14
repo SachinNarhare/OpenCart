@@ -13,6 +13,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
@@ -39,7 +40,7 @@ public static SoftAssert testAssert;
 public Properties properties;
 
 
-	//@BeforeSuite
+	@BeforeSuite
 	public void setUpSuite(ITestContext context) {
 	    String suitname=context.getCurrentXmlTest().getSuite().getName();	      
 		testAssert=new SoftAssert();
@@ -58,7 +59,7 @@ public Properties properties;
 		Reporter.log("****************Setting up reports and Test is getting ready*****************",true);
 	}
 	
-    @BeforeClass
+	 @BeforeClass
     @Parameters({"os","browser"})
     public void setup(String os,String browser)
     {
@@ -74,6 +75,7 @@ public Properties properties;
     	
     	
     	switch(browser.toLowerCase()){
+    	
     		case "chrome":	 driver = new ChromeDriver(); 
     		break;
     		
@@ -92,9 +94,9 @@ public Properties properties;
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.get(properties.getProperty("applicationURL"));
         driver.manage().window().maximize();
-    }
+    }	
 
-    //@AfterClass
+    @AfterClass
     public void tearDown()
     {
         driver.quit();
