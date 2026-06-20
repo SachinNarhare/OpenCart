@@ -20,6 +20,7 @@ public class TC001_AccountRegistrationTest extends BaseClass{
     	
 		homePageMethod = new HomePageMethod(driver);
 		homePageMethod.createAndVerifyCustomerAccount();
+		//Test
 		
     }
     
