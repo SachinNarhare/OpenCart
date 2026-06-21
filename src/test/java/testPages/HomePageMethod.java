@@ -20,24 +20,37 @@ public class HomePageMethod extends BaseClass {
 
 		public HomePage homePage;
 		public AccountRegistrationPage accountRegistrationPage;
-		public void createAndVerifyCustomerAccount() {
 		
-
+		
+		public void createAndVerifyCustomerAccount() {
 			
 		extentTestChild = extentTest.createNode("Create and <b>Verify</b> Customer Account");
 		extentTestChild.info("Create and Verify Customer Account");
 		Reporter.log("Create and Verify Customer Account", true);
 		
 		homePage= new HomePage(driver);
+		
+		String firstname=randomString().toUpperCase();
+		extentTestChild.info("First Name is generated as: "+firstname);
+		Reporter.log("First Name is generated as: "+firstname);
+		
+		String lastname=randomString().toUpperCase();
+		extentTestChild.info("Last Name is generated as: "+lastname);
+		Reporter.log("Last Name is generated as: "+lastname);
+		
+		String email=randomString();
+		extentTestChild.info("Email is generated as: "+email);
+		Reporter.log("Email is generated as: "+email);
+		
     	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     	homePage.clickMyAccount();
     	homePage.clickRegister();
     	
     	accountRegistrationPage=new AccountRegistrationPage(driver);
     	
-    	accountRegistrationPage.setFirstName(randomString().toUpperCase());
-    	accountRegistrationPage.setLastName(randomString().toUpperCase());
-    	accountRegistrationPage.setEmail(randomString()+"@gmail.com");
+    	accountRegistrationPage.setFirstName(firstname);
+    	accountRegistrationPage.setLastName(firstname);
+    	accountRegistrationPage.setEmail(email+"@gmail.com");
     	
     	accountRegistrationPage.setPassword(randomNumber());
     	

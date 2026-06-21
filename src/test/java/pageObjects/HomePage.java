@@ -3,6 +3,7 @@ package pageObjects;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.testng.Reporter;
 
 public class HomePage extends BasePage{
 
@@ -25,15 +26,18 @@ public class HomePage extends BasePage{
 	public void clickMyAccount()
 	{
 		lnkMyaccount.click();
+		Reporter.log("Clicked on My Account link", true);
 	}
 
 	public void clickRegister()
 	{
 	    lnkRegister.click();
+	    Reporter.log("Clicked on Register link", true);
 	}
 	
 	public void clickonLogin() {
 		lnkLogin.click();
+		Reporter.log("Clicked on Login link", true);
 	}
 
 }
