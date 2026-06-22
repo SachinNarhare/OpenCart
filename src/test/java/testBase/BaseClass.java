@@ -11,6 +11,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.PageFactory;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
@@ -42,15 +43,20 @@ public Properties properties;
 
 	@BeforeSuite
 	public void setUpSuite(ITestContext context) {
+		
+		
 	    String suitname=context.getCurrentXmlTest().getSuite().getName();	      
 		testAssert=new SoftAssert();
 		helper = new Helper();
 		if (extentReports == null) {
 			
 			extentHtmlReporter = new ExtentHtmlReporter(System.getProperty("user.dir") + "/Reports"+ "/" +"OPenCart-"+ suitname+  "-extent-report"+helper.timeStamp()+".html");
-			extentHtmlReporter.config().setResourceCDN(ResourceCDN.EXTENTREPORTS);
+			//extentHtmlReporter.config().setResourceCDN(ResourceCDN.EXTENTREPORTS);
 			extentReports=new ExtentReports();
 			extentReports.attachReporter(extentHtmlReporter);
+			
+
+				
 			extentHtmlReporter.config().setDocumentTitle("OpenCart setDocumentTitle");
 			extentHtmlReporter.config().setReportName("OpenCart setReportName");
 		}
@@ -142,4 +148,5 @@ public Properties properties;
 					+ System.getProperty("user.dir"), true);
 		}
 	}
+
 }
