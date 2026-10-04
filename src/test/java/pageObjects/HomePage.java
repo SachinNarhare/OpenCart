@@ -8,48 +8,45 @@ import org.testng.Reporter;
 
 import testBase.BaseClass;
 
-public class HomePage extends BaseClass{
+public class HomePage extends BaseClass {
 
-	public HomePage(WebDriver driver)
-	{
-		this.driver=driver;
+	public HomePage(WebDriver driver) {
+		this.driver = driver;
 		PageFactory.initElements(driver, this);
-	  }
+	}
 
-	@FindBy(xpath="//span[normalize-space()='My Account']")
+	@FindBy(xpath = "//span[normalize-space()='My Account']")
 	WebElement lnkMyaccount;
 
-	//By lnkMyaccount = By.xpath("//span[normalize-space()='My Account']");
-	
-	@FindBy(xpath="//a[normalize-space()='Register']")
+	// By lnkMyaccount = By.xpath("//span[normalize-space()='My Account']");
+
+	@FindBy(xpath = "//a[normalize-space()='Register']")
 	WebElement lnkRegister;
 
-	@FindBy(css="#top > div > div > div.col.text-end > ul > li:nth-child(2) > div > ul > li:nth-child(2) > a")
+	@FindBy(css = "#top > div > div > div.col.text-end > ul > li:nth-child(2) > div > ul > li:nth-child(2) > a")
 	WebElement lnkLogin;
-	
-	@FindBy(css="#top > div > div > div.col.text-end > ul > li:nth-child(2) > div > ul > li:nth-child(5) > a")
+
+	@FindBy(css = "#top > div > div > div.col.text-end > ul > li:nth-child(2) > div > ul > li:nth-child(5) > a")
 	WebElement lnkLogout;
-	
-	public void clickMyAccount()
-	{
+
+	public void clickMyAccount() {
 		lnkMyaccount.click();
 		extentTestChild.info("Clicked on My Account btn");
 		Reporter.log("Clicked on My Account link", true);
 	}
 
-	public void clickRegister()
-	{
-	    lnkRegister.click();
-	    extentTestChild.info("Clicked on Register btn");
-	    Reporter.log("Clicked on Register link", true);
+	public void clickRegister() {
+		lnkRegister.click();
+		extentTestChild.info("Clicked on Register btn");
+		Reporter.log("Clicked on Register link", true);
 	}
-	
+
 	public void clickonLogin() {
 		lnkLogin.click();
 		extentTestChild.info("Clicked on Login btn");
 		Reporter.log("Clicked on Login link", true);
 	}
-	
+
 	public void clickonLogout() {
 		lnkLogout.click();
 		extentTestChild.info("Clicked on Logout btn");

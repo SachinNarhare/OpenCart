@@ -22,16 +22,16 @@ public class LoginPage extends BaseClass {
 	@FindBy(xpath = "//input[@id='input-password']")
 	WebElement txtPassword;
 
-	@FindBy(xpath = "//input[@value='Login']")
+	@FindBy(xpath = "//*[@id='form-login']/div[3]/button")
 	WebElement btnLogin;
 
-	public void setEmail(String email) {
+	public void enterEmail(String email) {
 		txtEmailAddress.sendKeys(email);
 		extentTestChild.info("Email Entered: "+email);
 		Reporter.log("Email Entered: "+email,true);
 	}
 
-	public void setPassword(String pwd) {
+	public void enterPassword(String pwd) {
 		txtPassword.sendKeys(pwd);
 		extentTestChild.info("Password Entered: "+pwd);
 		Reporter.log("Password Entered: "+pwd,true);

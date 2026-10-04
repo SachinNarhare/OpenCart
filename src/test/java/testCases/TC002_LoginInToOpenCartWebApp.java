@@ -11,7 +11,7 @@ public class TC002_LoginInToOpenCartWebApp extends BaseClass {
 	public HomePageMethod homePageMethod;
 	
 	@Test 
-	public void loginintoapp() {
+	public void loginIntoApp() {
 		
 		extentTest=extentReports.createTest("Verify customer logged in successfully into OpenCart WebApp");
 		Reporter.log("Verify customer logged in successfully into OpenCart WebApp",true);

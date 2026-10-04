@@ -9,108 +9,107 @@ import org.testng.Reporter;
 
 import testBase.BaseClass;
 
-public class AccountRegistrationPage extends BaseClass{
+public class AccountRegistrationPage extends BaseClass {
 
-	    public AccountRegistrationPage(WebDriver driver){
-	    	
-			this.driver=driver;
-			PageFactory.initElements(driver, this);
-	    }
+	public AccountRegistrationPage(WebDriver driver) {
 
-	    
-	    @FindBy(xpath="//input[@id='input-firstname']")
-	    WebElement txtFirstname;
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
+	}
 
-	    @FindBy(xpath="//input[@id='input-lastname']")
-	    WebElement txtLastname;
+	@FindBy(xpath = "//input[@id='input-firstname']")
+	WebElement txtFirstname;
 
-	    @FindBy(xpath="//input[@id='input-email']")
-	    WebElement txtEmail;
+	@FindBy(xpath = "//input[@id='input-lastname']")
+	WebElement txtLastname;
 
-	    @FindBy(xpath="//input[@id='input-password']")
-	    WebElement txtPassword;
+	@FindBy(xpath = "//input[@id='input-email']")
+	WebElement txtEmail;
 
-	    @FindBy(xpath="//input[@id='input-confirm']")
-	    WebElement txtConfirmPassword;
+	@FindBy(xpath = "//input[@id='input-password']")
+	WebElement txtPassword;
 
-	    @FindBy(css="#form-register > div > div > input")
-	    WebElement chkPolicy;
+	@FindBy(xpath = "//input[@id='input-confirm']")
+	WebElement txtConfirmPassword;
 
-	    @FindBy(css="#form-register > div > button")
-	    WebElement btnContinue;
+	@FindBy(css = "#form-register > div > div > input")
+	WebElement chkPolicy;
 
-	    @FindBy(xpath="//h1[normalize-space()='Your Account Has Been Created!']")
-	    WebElement msgConfirmation;
+	@FindBy(css = "#form-register > div > button")
+	WebElement btnContinue;
 
-	    public void setFirstName(String fname) {
-	        txtFirstname.sendKeys(fname);
-	        extentTestChild.info("Entered First Name: "+fname);
-	        Reporter.log("Entered First Name: "+fname, true);
-	    }
+	@FindBy(xpath = "//h1[normalize-space()='Your Account Has Been Created!']")
+	WebElement msgConfirmation;
 
-	    public void setLastName(String lname) {
-	        txtLastname.sendKeys(lname);
-	        extentTestChild.info("Entered Last Name: "+lname);
-	        Reporter.log("Entered Last Name: "+lname, true);
-	    }
+	public void enterFirstName(String fname) {
+		txtFirstname.sendKeys(fname);
+		extentTestChild.info("Entered First Name: " + fname);
+		Reporter.log("Entered First Name: " + fname, true);
+	}
 
-	    public void setEmail(String email) {
-	        txtEmail.sendKeys(email);
-	        extentTestChild.info("Entered Email: "+email);
-	        Reporter.log("Entered Email: "+email, true);
-	    }		
+	public void enterLastName(String lname) {
+		txtLastname.sendKeys(lname);
+		extentTestChild.info("Entered Last Name: " + lname);
+		Reporter.log("Entered Last Name: " + lname, true);
+	}
 
-	    public void setPassword(String pwd) {
-	        txtPassword.sendKeys(pwd);
-	        extentTestChild.info("Entered Password: "+pwd);
-	        Reporter.log("Entered Password: "+pwd, true);
-	    }
+	public void enterEmail(String email) {
+		txtEmail.sendKeys(email);
+		extentTestChild.info("Entered Email: " + email);
+		Reporter.log("Entered Email: " + email, true);
+	}
 
-	    public void setConfirmPassword(String pwd) {
-	        txtConfirmPassword.sendKeys(pwd);
-	        extentTestChild.info("Entered Confirm Password"+pwd);
-	        Reporter.log("Entered Confirm Password"+pwd,true);;
-	    }
+	public void enterPassword(String pwd) {
+		txtPassword.sendKeys(pwd);
+		extentTestChild.info("Entered Password: " + pwd);
+		Reporter.log("Entered Password: " + pwd, true);
+	}
 
-	    public void setPrivacyPolicy() {
-	        Actions a=new Actions(driver);
-	        a.click(chkPolicy).build().perform();
-	        extentTestChild.info("Check policy btn enabled");
-	        Reporter.log("Check policy btn enabled",true);
-	    }
+	public void enterConfirmPassword(String pwd) {
+		txtConfirmPassword.sendKeys(pwd);
+		extentTestChild.info("Entered Confirm Password" + pwd);
+		Reporter.log("Entered Confirm Password" + pwd, true);
+		;
+	}
 
-	    public void clickContinue() {
-	        //sol1
-	        btnContinue.click();
-	        extentTestChild.info("Clicked on continue btn");
-	        Reporter.log("Clicked on continue btn",true);
+	public void enablePrivacyPolicy() {
+		Actions a = new Actions(driver);
+		a.click(chkPolicy).build().perform();
+		extentTestChild.info("Check policy btn enabled");
+		Reporter.log("Check policy btn enabled", true);
+	}
 
-	        //sol2
-	        //btnContinue.submit();
+	public void clickContinue() {
+		// sol1
+		btnContinue.click();
+		extentTestChild.info("Clicked on continue btn");
+		Reporter.log("Clicked on continue btn", true);
 
-	        //sol3
-	        //Actions act = new Actions(driver);
-	        //act.moveToElement(btnContinue).click().perform();
+		// sol2
+		// btnContinue.submit();
 
-	        //sol4
-	        //JavascriptExecutor js=(JavascriptExecutor)driver;
-	        //js.executeScript("arguments[0].click();", btnContinue);
+		// sol3
+		// Actions act = new Actions(driver);
+		// act.moveToElement(btnContinue).click().perform();
 
-	        //sol5
-	        //btnContinue.sendKeys(Keys.RETURN);
+		// sol4
+		// JavascriptExecutor js=(JavascriptExecutor)driver;
+		// js.executeScript("arguments[0].click();", btnContinue);
 
-	        //sol6
-	        //WebDriverWait mywait = new WebDriverWait(driver, Duration.ofSeconds(10));
-	        //mywait.until(ExpectedConditions.elementToBeClickable(btnContinue)).click();
-	    }
+		// sol5
+		// btnContinue.sendKeys(Keys.RETURN);
 
-	    public String getConfirmationMsg() {
-	        try {
-	            return (msgConfirmation.getText());
-	        } catch (Exception e) {
-	            return e.getMessage();
-	        }
-	    }
+		// sol6
+		// WebDriverWait mywait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		// mywait.until(ExpectedConditions.elementToBeClickable(btnContinue)).click();
+	}
 
+	public String getConfirmationMsg() {
+		try {
+			return (msgConfirmation.getText());
+		} catch (Exception e) {
+			return e.getMessage();
+		}
+	}
 
 }
