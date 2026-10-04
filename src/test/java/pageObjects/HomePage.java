@@ -27,6 +27,9 @@ public class HomePage extends BaseClass{
 	@FindBy(css="#top > div > div > div.col.text-end > ul > li:nth-child(2) > div > ul > li:nth-child(2) > a")
 	WebElement lnkLogin;
 	
+	@FindBy(css="#top > div > div > div.col.text-end > ul > li:nth-child(2) > div > ul > li:nth-child(5) > a")
+	WebElement lnkLogout;
+	
 	public void clickMyAccount()
 	{
 		lnkMyaccount.click();
@@ -45,6 +48,12 @@ public class HomePage extends BaseClass{
 		lnkLogin.click();
 		extentTestChild.info("Clicked on Login btn");
 		Reporter.log("Clicked on Login link", true);
+	}
+	
+	public void clickonLogout() {
+		lnkLogout.click();
+		extentTestChild.info("Clicked on Logout btn");
+		Reporter.log("Clicked on Logout btn");
 	}
 
 }

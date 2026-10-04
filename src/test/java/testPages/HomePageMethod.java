@@ -20,6 +20,8 @@ public class HomePageMethod extends BaseClass {
 
 		public HomePage homePage;
 		public AccountRegistrationPage accountRegistrationPage;
+		public static String firstname;
+		public LoginPageMethod loginPageMethod;
 		
 		
 		public void createAndVerifyCustomerAccount() {
@@ -59,5 +61,24 @@ public class HomePageMethod extends BaseClass {
     	
     	String confmsg=accountRegistrationPage.getConfirmationMsg();
     	Assert.assertEquals(confmsg, "Your Account Has Been Created!");
+    	
+    	homePage.clickMyAccount();
+    	homePage.clickonLogout();
 	}
+		
+		public void loginInToApplication() {
+			extentTestChild = extentTest.createNode("Login into application");
+			extentTestChild.info("Login into application");
+			Reporter.log("Login into application");
+			
+			homePage= new HomePage(driver);
+			homePage.clickMyAccount();
+			homePage.clickonLogin();
+			
+			loginPageMethod=new LoginPageMethod();
+			loginPageMethod.loginintoapplication();
+			
+			
+			
+		}
 }

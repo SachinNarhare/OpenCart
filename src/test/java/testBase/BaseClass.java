@@ -18,6 +18,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.asserts.SoftAssert;
 import com.aventstack.extentreports.ExtentReports;
@@ -30,7 +31,7 @@ import utilities.Helper;
 
 public class BaseClass {
 
-public WebDriver driver;
+public static WebDriver driver;
 public static ExtentReports extentReports;
 public static ExtentHtmlReporter extentHtmlReporter;
 public static Helper helper;
@@ -65,7 +66,7 @@ public Properties properties;
 		Reporter.log("****************Setting up reports and Test is getting ready*****************",true);
 	}
 	
-	 @BeforeClass
+	@BeforeTest
     @Parameters({"os","browser"})
     public void setup(String os,String browser)
     {
@@ -102,10 +103,10 @@ public Properties properties;
         driver.manage().window().maximize();
     }	
 
-    @AfterClass
+    //@AfterTest
     public void tearDown()
     {
-        driver.quit();
+       driver.quit();
     }
     
     public String randomString() {
