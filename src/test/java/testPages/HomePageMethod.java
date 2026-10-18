@@ -86,7 +86,7 @@ public class HomePageMethod extends BaseClass {
 	public void loginInToApplication() {
 		extentTestChild = extentTest.createNode("Login into application");
 		extentTestChild.info("Login into application");
-		Reporter.log("Login into application");
+		Reporter.log("Login into application",true);
 
 		homePage = new HomePage(driver);
 		homePage.clickMyAccount();
